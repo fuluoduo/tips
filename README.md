@@ -33,7 +33,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I get through some challenges of adding animations and figuring out how to use local-specific currency 
 
 ## License
 
