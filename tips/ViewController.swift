@@ -141,10 +141,11 @@ class ViewController: UIViewController {
         var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
         var billAmount = NSString(string: billField.text!).doubleValue
+        var splitter = NSString(string: NumberOfPeople.text!).doubleValue
         var tip = billAmount * tipPercentage
         var total = billAmount + tip
-        tipLabel.text = formatAmount(tip)
-        totalLabel.text = formatAmount(total)
+        tipLabel.text = formatAmount(tip/splitter)
+        totalLabel.text = formatAmount(total/splitter)
     }
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
