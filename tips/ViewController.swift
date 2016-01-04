@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var NumberOfPeople: UILabel!
+    @IBOutlet weak var tipSplitter: UISlider!
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
@@ -64,6 +66,35 @@ class ViewController: UIViewController {
         return formatter.stringFromNumber(amount)!
     }
 
+    @IBAction func Tipsplit(sender: AnyObject) {
+        if (billField.text == ""){
+            UIView.animateWithDuration(1, animations: {
+                self.billField.frame = CGRectMake(132, 300, 168, 30)
+                print("Empty Bill")
+                self.tipLabel.hidden = true
+                self.totalLabel.hidden = true
+                self.tipControl.hidden = true
+            })
+        }
+        else{
+            UIView.animateWithDuration(1, animations: {
+                self.billField.frame = CGRectMake(132, 83, 168, 30)
+                self.tipLabel.hidden = false
+                self.totalLabel.hidden = false
+                self.tipControl.hidden = false
+            })
+        }
+        var tipPercentages = [0.18,0.2,0.22]
+        var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
+        
+        var billAmount = NSString(string: billField.text!).doubleValue
+        var tipSplited = Int(tipSplitter.value)
+        var tip = billAmount * tipPercentage/Double(tipSplited)
+        var total = (billAmount + tip)/Double(tipSplited)
+        NumberOfPeople.text = String(tipSplited)
+        tipLabel.text = formatAmount(tip)
+        totalLabel.text = formatAmount(total)
+    }
     @IBAction func onEditingChanged(sender: AnyObject) {
         if (billField.text == ""){
         UIView.animateWithDuration(1, animations: {
