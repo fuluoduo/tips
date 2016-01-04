@@ -10,12 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var Tip: UILabel!
+    @IBOutlet weak var BillAmount: UILabel!
     @IBOutlet weak var NumberOfPeople: UILabel!
     @IBOutlet weak var tipSplitter: UISlider!
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var Split: UILabel!
+    @IBOutlet weak var Total: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -27,6 +31,26 @@ class ViewController: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
     var select = defaults.integerForKey("savedint")
         tipControl.selectedSegmentIndex = select
+        if defaults.boolForKey("darkmodeon")==true{
+            self.view.backgroundColor = UIColor.blackColor()
+            tipLabel.textColor = UIColor.whiteColor()
+            totalLabel.textColor = UIColor.whiteColor()
+            NumberOfPeople.textColor = UIColor.whiteColor()
+            BillAmount.textColor = UIColor.whiteColor()
+            Tip.textColor = UIColor.whiteColor()
+            Split.textColor = UIColor.whiteColor()
+            Total.textColor = UIColor.whiteColor()
+        }
+        else{
+            self.view.backgroundColor = UIColor.whiteColor()
+            tipLabel.textColor = UIColor.blackColor()
+            totalLabel.textColor = UIColor.blackColor()
+            NumberOfPeople.textColor = UIColor.blackColor()
+            BillAmount.textColor = UIColor.blackColor()
+            Tip.textColor = UIColor.blackColor()
+            Split.textColor = UIColor.blackColor()
+            Total.textColor = UIColor.blackColor()
+        }
     }
     override func viewDidDisappear(animated: Bool) {
         let previousDate = NSDate.timeIntervalSinceReferenceDate()

@@ -10,12 +10,18 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var DarkOn: UISwitch!
     @IBOutlet weak var tControl: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        self.view.backgroundColor = UIColor.whiteColor()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        DarkOn.on = defaults.boolForKey("darkmodeon")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -24,6 +30,7 @@ class SettingsViewController: UIViewController {
     @IBAction func ValueChanged(sender: AnyObject) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setInteger(tControl.selectedSegmentIndex, forKey: "savedint")
+        defaults.setBool(DarkOn.on, forKey: "darkmodeon")
         defaults.synchronize()
     }
 

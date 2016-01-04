@@ -76,7 +76,7 @@
                                     <action selector="Tipsplit:" destination="BYZ-38-t0r" eventType="valueChanged" id="Eo6-Zd-yfP"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b0u-Jc-w4U">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b0u-Jc-w4U">
                                 <rect key="frame" x="20" y="170" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -108,7 +108,11 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="BillAmount" destination="MSL-TZ-UuX" id="fI4-4p-BMP"/>
                         <outlet property="NumberOfPeople" destination="Ost-E0-SqQ" id="2tp-c4-kBb"/>
+                        <outlet property="Split" destination="b0u-Jc-w4U" id="Dgg-qX-zbS"/>
+                        <outlet property="Tip" destination="lOi-XM-7BP" id="RN3-X9-QbF"/>
+                        <outlet property="Total" destination="1iM-Tm-77B" id="d4u-hg-Bd4"/>
                         <outlet property="billField" destination="sU8-mD-r93" id="1aI-vS-OBX"/>
                         <outlet property="tipControl" destination="DqV-tC-hUd" id="xf2-bC-E3M"/>
                         <outlet property="tipLabel" destination="YU1-ic-Jxh" id="rF7-Sw-U1I"/>
@@ -152,10 +156,25 @@
                                     <action selector="ValueChanged:" destination="lDc-un-7YE" eventType="valueChanged" id="VfZ-XD-I72"/>
                                 </connections>
                             </segmentedControl>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="mUv-9i-fh2">
+                                <rect key="frame" x="224" y="193" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="ValueChanged:" destination="lDc-un-7YE" eventType="valueChanged" id="KDI-vW-xDJ"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LRA-Oa-JZv">
+                                <rect key="frame" x="77" y="193" width="122" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="Hax-2D-Hpx"/>
                     <connections>
+                        <outlet property="DarkOn" destination="mUv-9i-fh2" id="2HT-Xd-DOP"/>
                         <outlet property="tControl" destination="1BC-sY-sFF" id="pXP-6N-UoN"/>
                     </connections>
                 </viewController>
